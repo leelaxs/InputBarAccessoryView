@@ -13,14 +13,15 @@ final class SubviewExampleViewController: CommonTableViewController {
     
     // MARK: - Properties
     
-    private var keyboardManager = KeyboardManager()
+    private var keyboardManager: KeyboardManager!
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.addSubview(inputBar)
+
+        keyboardManager = KeyboardManager(inputAccessoryView: inputBar)
         
         // Binding the inputBar will set the needed callback actions to position the inputBar on top of the keyboard
         keyboardManager.bind(inputAccessoryView: inputBar)

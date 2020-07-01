@@ -157,7 +157,7 @@ open class KeyboardManager: NSObject, UIGestureRecognizerDelegate {
                 self?.constraints?.bottom?.constant == 0,
                 notification.isForCurrentApp else { return }
             self?.animateAlongside(notification) {
-                self?.constraints?.bottom?.constant = -keyboardHeight
+                self?.constraints?.bottom?.constant = -keyboardHeight+(UIScreen.main.bounds.height - superview.bounds.height)
                 self?.inputAccessoryView?.superview?.layoutIfNeeded()
             }
         }
@@ -167,7 +167,7 @@ open class KeyboardManager: NSObject, UIGestureRecognizerDelegate {
                 self?.isKeyboardHidden == false,
                 notification.isForCurrentApp else { return }
             self?.animateAlongside(notification) {
-                self?.constraints?.bottom?.constant = -keyboardHeight
+                self?.constraints?.bottom?.constant = -keyboardHeight+(UIScreen.main.bounds.height - superview.bounds.height)
                 self?.inputAccessoryView?.superview?.layoutIfNeeded()
             }
         }
